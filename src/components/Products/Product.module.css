@@ -1,0 +1,42 @@
+.Card {
+    border: 2px solid #f3f3f3;
+    width: 250px;
+    text-align: center;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.Card > img {
+    max-width: 220px;
+    height: 250px;
+}
+
+.CardButton {
+    width: 80px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: medium;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
+
+.CardButton:hover {
+    background-color: #e7e7e7;
+}
+
+h3 {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

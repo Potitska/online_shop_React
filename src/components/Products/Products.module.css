@@ -1,0 +1,7 @@
+.Container {
+    row-gap: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 50px 0;
+}

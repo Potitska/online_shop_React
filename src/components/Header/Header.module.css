@@ -1,0 +1,74 @@
+.Header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.Logo {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.Logo > a {
+    text-decoration: none;
+    color: black;
+}
+
+.HeaderRight {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+
+}
+
+.Search {
+    position: relative;
+}
+
+.Search > input {
+    border: 2px solid #f3f3f3;
+    width: 200px;
+    height: 35px;
+    border-radius: 10px;
+    padding-left: 34px;
+    font-size: 16px;
+}
+
+.Search > input :focus {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+
+.Icon {
+    cursor: pointer;
+    height: 22px;
+    width: 22px;
+    opacity: 0.3;
+    position: absolute;
+    left: 6px;
+    top: 6px
+}
+
+.CartAllBlock {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.CartTotalPrice {
+    margin-left: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.CartIcon {
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    position: relative;
+}

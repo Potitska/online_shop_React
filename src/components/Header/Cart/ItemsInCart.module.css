@@ -1,0 +1,14 @@
+.ItemsInCart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: tomato;
+    border-radius: 15px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    left: 15px;
+    top: -10px;
+}
