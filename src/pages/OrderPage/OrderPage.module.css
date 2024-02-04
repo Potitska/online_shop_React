@@ -1,0 +1,36 @@
+.OrderPage {
+    width: 1430px;
+    height: 550px;
+}
+
+.OrderItem {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.OrderItemCover {
+    width: 200px;
+    margin-right: 30px;
+}
+
+.OrderItemCover > img {
+    width: 130px;
+
+}
+
+.OrderItemTitle {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.OrderItemPrice {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: auto;
+}
+
+.CartItemDeleteIcon {
+    margin-left: 13px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}

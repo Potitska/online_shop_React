@@ -1,8 +1,9 @@
 import {createBrowserRouter, Navigate} from "react-router-dom";
 
 import {MainLayout} from "../layouts";
-import {CategoriesPage, ProductsPage} from "../pages";
 import {AppRoutes} from "./AppRoutes";
+import {CategoriesPage, OrderPage, ProductByIdPage, ProductsPage} from "../pages";
+
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,14 @@ const router = createBrowserRouter([
             {
                 path: AppRoutes.CATEGORIES,
                 element: <CategoriesPage/>
+            },
+            {
+                path: AppRoutes.PRODUCTBYID,
+                element: <ProductByIdPage/>
+            },
+            {
+                path: AppRoutes.ORDER,
+                element: <OrderPage/>
             }
         ]
     }

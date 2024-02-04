@@ -3,7 +3,8 @@ import {productsService} from "../../services";
 
 const initialState = {
     products: [],
-    categories: []
+    categories: [],
+
 };
 
 const getAll = createAsyncThunk(
@@ -30,6 +31,7 @@ const getAllCategories = createAsyncThunk(
     }
 )
 
+
 const slice = createSlice({
     name: 'productSlice',
     initialState,
@@ -49,7 +51,7 @@ const {reducer: productsReducer, actions} = slice;
 const productsActions = {
     ...actions,
     getAll,
-    getAllCategories
+    getAllCategories,
 }
 
 export {

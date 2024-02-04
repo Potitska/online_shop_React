@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
-import {Link} from "react-router-dom";
-import {MdOutlineShoppingCart} from "react-icons/md";
+import React, {useCallback, useState} from 'react';
+import {Link, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
+import {MdOutlineShoppingCart} from "react-icons/md";
 
-import css from './Header.module.css';
 import {CartMenu} from "./Cart/CartMenu";
 import {calcTotalPrice} from "./Cart/TotalPrice";
 import {ItemsInCart} from "./Cart/ItemsInCart";
+
+import css from './Header.module.css';
 
 
 const Header = () => {
@@ -14,6 +15,12 @@ const Header = () => {
     const [isCartMenuVisible, setIsCartMenuVisible] = useState(false)
     const items = useSelector(state => state.cart.itemsInCart);
     const totalPrice = calcTotalPrice(items);
+    const navigate = useNavigate();    //це хук для того щоб перевести користувача на нову сторінку
+
+    const handleClick = useCallback(() => {
+        setIsCartMenuVisible(false)     //тут ми закриваємо наше меню, коли переходими на нову сторінку
+        navigate('/products/order')
+    }, [navigate])
 
     return (
         <div className={css.Header}>
@@ -31,7 +38,7 @@ const Header = () => {
                                 d="M28,29a1,1,0,0,1-.71-.29l-8-8a1,1,0,0,1,1.42-1.42l8,8a1,1,0,0,1,0,1.42A1,1,0,0,1,28,29Z"/>
                         </g>
                     </svg>
-                    <input type={"text"} placeholder={'Пошук товару...'}/>
+                    <input type={"text"} placeholder={'Search product...'}/>
                 </div>
                 <div className={css.CartAllBlock}>
                     <ItemsInCart quantity={items.length}/>
@@ -40,7 +47,7 @@ const Header = () => {
                         onClick={() => setIsCartMenuVisible(!isCartMenuVisible)}
                     />
                     {totalPrice > 0 ? <span className={css.CartTotalPrice}>{totalPrice} $</span> : null}
-                    {isCartMenuVisible && <CartMenu items={items} onClick={() => null}/>}
+                    {isCartMenuVisible && <CartMenu items={items} onClick={handleClick}/>}
                 </div>
             </div>
         </div>
