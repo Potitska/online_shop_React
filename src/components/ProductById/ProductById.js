@@ -34,7 +34,7 @@ const ProductById = () => {
                 <button
                     className={css.CardButton}
                     onClick={handleClick}
-                >{isItemInCart ? 'Delete from cart' : 'Buy'}
+                >{isItemInCart ? 'Remove' : 'Buy'}
                 </button>
                 <p>Description: {description}</p>
                 <div>Category: {category}</div>

@@ -10,10 +10,11 @@ import css from './Product.module.css';
 const Product = ({product}) => {
 
     const {title, description, price, category, image} = product;
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const items = useSelector(state => state.cart.itemsInCart);
-    const isItemInCart = items.some(item => item.id === product.id)           //тут ми дізнаємося чи поточний елеменнт в корзині(за допомогою id) items це масив. some -це стандартний метод масива, він повертає значення тру або фолс, взалежності від поточного стану
+    const isItemInCart = items.some(item => item.id === product.id)       //тут ми дізнаємося чи поточний елеменнт в корзині(за допомогою id) items це масив. some -це стандартний метод масива, він повертає значення тру або фолс, взалежності від поточного стану
     const handleClick = (e) => {
         e.stopPropagation();
         if (isItemInCart) {     //тут об'єкт вже в корзині(це для кнопки delete, щоб воно добавляла товар тільки 1 раз, а на наступний натиск видаляла)
@@ -38,7 +39,7 @@ const Product = ({product}) => {
             <button
                 className={css.CardButton}
                 onClick={handleClick}
-            >{isItemInCart ? 'Delete from cart' : 'Buy'}
+            >{isItemInCart ? 'Remove' : 'Buy'}
             </button>
             <p className={css.Description}>Description: {description}</p>
             <div>Category: {category}</div>

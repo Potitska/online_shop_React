@@ -17,7 +17,7 @@ const CartMenu = ({items, onClick}) => {
                     <div className={css.CartMenuTotalPrice}>
                         <span>Total:</span>
                         <span>{calcTotalPrice(items)} $</span>
-                        <button className={css.Button} type='primery' onClick={onClick}>
+                        <button className={css.Button} onClick={onClick}>
                             Checkout
                         </button>
                     </div>
