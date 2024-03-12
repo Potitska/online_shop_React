@@ -1,12 +1,31 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 
-import css from './CartMenu.module.css';
-import {calcTotalPrice} from "./TotalPrice";
 import {CartItem} from "./CartItem";
 
-const CartMenu = ({items, onClick}) => {
+import css from './CartMenu.module.css';
+import {useSelector} from "react-redux";
+
+const CartMenu = ({items, onClick, setIsCartMenuVisible}) => {
+
+    const {totalPrice} = useSelector(state => state.cart);
+
+    const cartMenuRef = useRef(null);   //close the cart when you click outside the cart
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (cartMenuRef.current && !cartMenuRef.current.contains(event.target)) {
+                setIsCartMenuVisible(false)
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [])
+
     return (
-        <div className={css.CartMenu}>
+        <div ref={cartMenuRef} className={css.CartMenu}>
             <div className={css.CartMenuProductsList}>
                 {items.length > 0 ? items.map(product => <CartItem key={product.id} price={product.price}
                                                                    title={product.title}
@@ -16,7 +35,7 @@ const CartMenu = ({items, onClick}) => {
                 <div className={css.CartMenuArrange}>
                     <div className={css.CartMenuTotalPrice}>
                         <span>Total:</span>
-                        <span>{calcTotalPrice(items)} $</span>
+                        {/*<span>{totalPrice(items)} $</span>*/}
                         <button className={css.Button} onClick={onClick}>
                             Checkout
                         </button>

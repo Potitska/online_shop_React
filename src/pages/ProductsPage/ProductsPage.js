@@ -1,7 +1,8 @@
 import React from 'react';
 
-import {Products} from "../../components";
 import {Outlet} from "react-router-dom";
+
+import {Products} from "../../components";
 
 const ProductsPage = () => {
     return (

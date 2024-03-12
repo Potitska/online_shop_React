@@ -1,3 +1,3 @@
-export * from './ProductsPage';
-export * from './OrderPage';
-export * from './ProductByIdPage';
+export * from './ProductsPage/ProductsPage';
+export * from './OrderPage/OrderPage';
+export * from './ProductByIdPage/ProductByIdPage';

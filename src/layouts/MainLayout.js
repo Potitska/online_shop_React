@@ -1,13 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Outlet} from "react-router-dom";
 
-import {Footer, Header} from "../components";
+import {Categories, Footer, Header} from "../components";
+
 import css from './MainLayout.module.css';
 
 const MainLayout = () => {
+
+    const [categoryId, setCategoryId] = useState(0);
+
+
     return (
         <div className={css.ContainerAllProject}>
             <Header/>
+            <Categories value={categoryId} onClickCategory={(index) => setCategoryId(index)}/>
             <Outlet/>
             <Footer/>
         </div>

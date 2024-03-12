@@ -3,7 +3,9 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {productsService} from "../../services";
 
 const initialState = {
-    products: []
+    products: [],
+    searchValue: '',
+    categoryFilter: '',
 };
 
 const getAll = createAsyncThunk(
@@ -21,7 +23,14 @@ const getAll = createAsyncThunk(
 const slice = createSlice({
     name: 'productSlice',
     initialState,
-    reducers: {},
+    reducers: {
+        setSearchValue: (state, action) => {
+            state.searchValue = action.payload;
+        },
+        setCategoryValue: (state, action) => {
+            state.categoryFilter = action.payload;
+        }
+    },
     extraReducers: builder => builder
         .addCase(getAll.fulfilled, (state, action) => {
             state.products = action.payload
@@ -30,6 +39,8 @@ const slice = createSlice({
 
 
 const {reducer: productsReducer, actions} = slice;
+
+export const {setSearchValue} = slice.actions;
 
 const productsActions = {
     ...actions,

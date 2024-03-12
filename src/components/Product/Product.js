@@ -9,7 +9,7 @@ import css from './Product.module.css';
 
 const Product = ({product}) => {
 
-    const {title, description, price, category, image} = product;
+    const {id, title, description, price, category, image} = product;
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -25,13 +25,13 @@ const Product = ({product}) => {
     }
 
     const handleClickOneProduct = () => {
-        //тут ми робимо дспатч нашого екшина і передаємо наш продукт.Це потрібно для того щоб,коли ми клікнемо на гру, ця гра стане в нас поточною на редакс
+        //тут ми робимо диспатчимо нашого екшина і передаємо наш продукт.Це потрібно для того щоб,коли ми клікнемо на гру, ця гра стане в нас поточною на редакс
         navigate(`/products/${product.id}`, {state: {...product}})
     }
 
     return (
         <div className={css.Card}>
-            <h3>
+            <h3 onClick={handleClickOneProduct}>
                 <div>{title}</div>
             </h3>
             <img src={image} alt={'images'} onClick={handleClickOneProduct}/>
