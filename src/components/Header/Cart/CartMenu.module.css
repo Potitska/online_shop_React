@@ -15,12 +15,6 @@
     border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-.CartMenuTotalPrice {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    color: white;
-}
 
 .CartMenuProductsList {
     color: white;

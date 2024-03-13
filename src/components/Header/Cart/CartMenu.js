@@ -3,11 +3,10 @@ import React, {useEffect, useRef} from 'react';
 import {CartItem} from "./CartItem";
 
 import css from './CartMenu.module.css';
-import {useSelector} from "react-redux";
+
 
 const CartMenu = ({items, onClick, setIsCartMenuVisible}) => {
 
-    const {totalPrice} = useSelector(state => state.cart);
 
     const cartMenuRef = useRef(null);   //close the cart when you click outside the cart
 
@@ -22,7 +21,7 @@ const CartMenu = ({items, onClick, setIsCartMenuVisible}) => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
-    }, [])
+    }, [setIsCartMenuVisible])
 
     return (
         <div ref={cartMenuRef} className={css.CartMenu}>
@@ -33,13 +32,9 @@ const CartMenu = ({items, onClick, setIsCartMenuVisible}) => {
             </div>
             {items.length > 0 ?
                 <div className={css.CartMenuArrange}>
-                    <div className={css.CartMenuTotalPrice}>
-                        <span>Total:</span>
-                        {/*<span>{totalPrice(items)} $</span>*/}
-                        <button className={css.Button} onClick={onClick}>
-                            Checkout
-                        </button>
-                    </div>
+                    <button className={css.Button} onClick={onClick}>
+                        Checkout
+                    </button>
                 </div> : null}
         </div>
     );

@@ -26,7 +26,7 @@ const cartSlice = createSlice({
             }, 0);
         },
         deleteItemFromCart: (state, action) => {
-            state.itemsInCart = state.itemsInCart.filter(product => product.id !== action.payload)         //here we delete from cart
+            state.itemsInCart = state.itemsInCart.filter(product => product.id !== action.payload)
         },
         minusItem(state, action) {
             const findItem = state.itemsInCart.find((product) => product.id === action.payload)

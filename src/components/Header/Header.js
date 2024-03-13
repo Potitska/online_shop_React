@@ -16,10 +16,10 @@ const Header = () => {
 
     const totalCount = items.reduce((sum, product) => sum + product.count, 0)
 
-    const navigate = useNavigate();    //це хук для того щоб перевести користувача на нову сторінку
+    const navigate = useNavigate();
 
     const handleClick = useCallback(() => {
-        setIsCartMenuVisible(false)     //тут ми закриваємо наше меню, коли переходими на нову сторінку
+        setIsCartMenuVisible(false)     //here we close our menu, when go to new page
         navigate('/products/order')
     }, [navigate])
 
