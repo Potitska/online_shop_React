@@ -1,5 +1,5 @@
 import React from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {ImCross} from "react-icons/im";
 import {CiCircleMinus, CiCirclePlus} from "react-icons/ci";
 
@@ -10,8 +10,6 @@ import css from '..//../pages/OrderPage/OrderPage.module.css'
 
 const OrderItem = ({product}) => {
     const {id} = product;
-
-    const {itemsInCart, quantity} = useSelector(state => state.cart);
 
     const dispatch = useDispatch();
 

@@ -12,7 +12,7 @@ import css from './Header.module.css';
 const Header = () => {
 
     const [isCartMenuVisible, setIsCartMenuVisible] = useState(false)
-    const {itemsInCart: items, totalPrice} = useSelector(state => state.cart);
+    const {itemsInCart: items} = useSelector(state => state.cart);
 
     const totalCount = items.reduce((sum, product) => sum + product.count, 0)
 
@@ -22,6 +22,10 @@ const Header = () => {
         setIsCartMenuVisible(false)     //here we close our menu, when go to new page
         navigate('/products/order')
     }, [navigate])
+
+    const totalPrice = items.reduce((accumulator, currentProduct) => {
+        return accumulator + (currentProduct.count * currentProduct.price);
+    }, 0);
 
     return (
         <div className={css.Header}>
@@ -40,7 +44,7 @@ const Header = () => {
                         className={css.CartIcon}
                         onClick={() => setIsCartMenuVisible(!isCartMenuVisible)}
                     />
-                    {totalPrice > 0 ? <span className={css.CartTotalPrice}>{totalPrice} $</span> : null}
+                    {totalPrice > 0 ? <span className={css.CartTotalPrice}>{totalPrice.toFixed(2)} $</span> : null}
                     {isCartMenuVisible &&
                         <CartMenu items={items} onClick={handleClick} setIsCartMenuVisible={setIsCartMenuVisible}/>}
                 </div>

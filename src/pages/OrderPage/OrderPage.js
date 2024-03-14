@@ -3,12 +3,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
 import {OrderItem} from "../../components";
-
-import css from './OrderPage.module.css';
 import {clearItems} from "../../redux";
 
+import css from './OrderPage.module.css';
+
 const OrderPage = () => {
-    const {itemsInCart: items, totalPrice} = useSelector(state => state.cart);
+    const {itemsInCart: items} = useSelector(state => state.cart);
     const totalCount = items.reduce((sum, product) => sum + product.count, 0)
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -23,6 +23,10 @@ const OrderPage = () => {
         return <h1>Your cart is empty :(</h1>
     }
 
+    const totalPrice = items.reduce((accumulator, currentProduct) => {
+        return accumulator + (currentProduct.count * currentProduct.price);
+    }, 0);
+
     return (
         <div className={css.OrderPage}>
             <div className={css.OrderPageLeft}>
@@ -32,7 +36,7 @@ const OrderPage = () => {
                 <div className={css.OrderPageTotalPrice}>
                     <span>
                        {totalCount} pcs.
-                        ORDER SUMMARY {totalPrice} $
+                        ORDER SUMMARY {totalPrice.toFixed(2)} $
                     </span>
                 </div>
             </div>
