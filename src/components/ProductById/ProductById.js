@@ -10,11 +10,11 @@ const ProductById = () => {
     const {state} = useLocation();
     const dispatch = useDispatch();
     const items = useSelector(state => state.cart.itemsInCart);
-    const isItemInCart = items.some(item => item.id === state.id)           //тут ми дізнаємося чи поточний елеменнт в корзині(за допомогою id) items це масив. some -це стандартний метод масива, він повертає значення тру або фолс, взалежності від поточного стану
+    const isItemInCart = items.some(item => item.id === state.id)           //Here we want to know if the current element is in the cart
     const handleClick = (e) => {
         e.stopPropagation();
-        if (isItemInCart) {     //тут об'єкт вже в корзині(це для кнопки delete, щоб воно добавляла товар тільки 1 раз, а на наступний натиск видаляла)
-            dispatch(deleteItemFromCart(state.id))     //а тут ми його видаляємо
+        if (isItemInCart) {                         //Here we check if the object is in the cart(it`s for buttons delete and buy)
+            dispatch(deleteItemFromCart(state.id))
         } else {
             dispatch(setItemInCart(state))
         }
