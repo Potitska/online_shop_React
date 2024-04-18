@@ -1,8 +1,9 @@
 import React from 'react';
 
-import css from './Categories.module.css';
 import {useDispatch} from "react-redux";
-import {productsActions} from "../../redux";
+import {productsActions} from "../../../redux";
+
+import css from './Categories.module.css';
 
 const Categories = ({value, onClickCategory}) => {
 

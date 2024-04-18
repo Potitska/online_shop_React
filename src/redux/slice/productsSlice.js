@@ -6,6 +6,7 @@ const initialState = {
     products: [],
     searchValue: '',
     categoryFilter: '',
+    isLoading: null,
 };
 
 const getAll = createAsyncThunk(
@@ -34,6 +35,10 @@ const slice = createSlice({
     extraReducers: builder => builder
         .addCase(getAll.fulfilled, (state, action) => {
             state.products = action.payload
+            state.isLoading = false
+        })
+        .addCase(getAll.pending, (state, action) => {
+            state.isLoading = true
         })
 });
 

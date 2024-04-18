@@ -17,7 +17,10 @@ const CartMenu = ({items, onClick, setIsCartMenuVisible}) => {
             }
         };
 
+        //запуск ефекта
         document.addEventListener('mousedown', handleClickOutside);
+
+        //очистка ефекта
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }

@@ -2,7 +2,7 @@ import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
-import {deleteItemFromCart, setItemInCart} from "../../redux";
+import {deleteItemFromCart, setItemInCart} from "../../../redux";
 
 import css from './Product.module.css';
 

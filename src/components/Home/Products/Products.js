@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
 
-import {productsActions} from "../../redux";
+import {productsActions} from "../../../redux";
 import {Product} from "../Product/Product";
 
 import css from './Products.module.css';
