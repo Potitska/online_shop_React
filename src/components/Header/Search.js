@@ -20,6 +20,7 @@ const Search = () => {
     const clearInput = () => {
         dispatch(productsActions.setSearchValue(''))
         inputSearch.current.value = ''
+        inputSearch.current.focus()
     }
 
     return (
