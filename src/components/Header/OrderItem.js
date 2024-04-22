@@ -1,12 +1,13 @@
 import React from 'react';
 import {useDispatch} from "react-redux";
+
 import {ImCross} from "react-icons/im";
 import {CiCircleMinus, CiCirclePlus} from "react-icons/ci";
 
 
 import {deleteItemFromCart, minusItem, setItemInCart} from "../../redux";
 
-import css from '..//../pages/OrderPage/OrderPage.module.css'
+import css from '../../pages/OrderPage/orderPage.module.css'
 
 const OrderItem = ({product}) => {
     const {id} = product;

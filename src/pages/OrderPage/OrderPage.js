@@ -5,12 +5,14 @@ import {useNavigate} from "react-router-dom";
 import {OrderItem} from "../../components";
 import {clearItems} from "../../redux";
 
-import css from './OrderPage.module.css';
+import css from './orderPage.module.css';
 
 const OrderPage = () => {
+
     const {itemsInCart: items} = useSelector(state => state.cart);
-    const totalCount = items.reduce((sum, product) => sum + product.count, 0)
     const dispatch = useDispatch();
+
+    const totalCount = items.reduce((sum, product) => sum + product.count, 0)
     const navigate = useNavigate();
 
     const onClickClearAll = () => {

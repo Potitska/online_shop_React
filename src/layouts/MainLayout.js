@@ -3,12 +3,11 @@ import {Outlet} from "react-router-dom";
 
 import {Categories, Footer, Header} from "../components";
 
-import css from './MainLayout.module.css';
+import css from './mainLayout.module.css';
 
 const MainLayout = () => {
 
     const [categoryId, setCategoryId] = useState(0);
-
 
     return (
         <div className={css.ContainerAllProject}>

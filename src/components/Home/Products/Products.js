@@ -5,9 +5,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {productsActions} from "../../../redux";
 import {Product} from "../Product/Product";
 
-import css from './Products.module.css';
+import css from './products.module.css';
 
 const Products = () => {
+
     const dispatch = useDispatch();
     const {products, searchValue, categoryFilter} = useSelector(state => state.products);
     let filteredProducts = products
@@ -34,7 +35,6 @@ const Products = () => {
 
     return (
         <div className={css.Container}>
-
             {filteredProducts.length !== 0 ? filteredProducts.map((product) => <Product key={product.id}
                                                                                         product={product}/>) : 'Not found'}
 

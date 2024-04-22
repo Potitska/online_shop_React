@@ -6,7 +6,9 @@ import {useSelector} from "react-redux";
 import {Loading, Products} from "../../components";
 
 const ProductsPage = () => {
+
     const {isLoading} = useSelector(state => state.products);
+
     return (
         <div>
             {isLoading && <Loading/>}

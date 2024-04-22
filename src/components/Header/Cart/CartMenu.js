@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 
 import {CartItem} from "./CartItem";
 
-import css from './CartMenu.module.css';
+import css from './cartMenu.module.css';
 
 
 const CartMenu = ({items, onClick, setIsCartMenuVisible}) => {

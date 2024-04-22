@@ -1,9 +1,9 @@
 import React from 'react';
 
-import css from './CartItem.module.css';
+import css from './cartItem.module.css';
 
-//тут ми робимо розташування товару в корзині
-const CartItem = ({id, title, price}) => {
+//here we place the product in the cart
+const CartItem = ({title, price}) => {
     return (
         <div className={css.CartItem}>
             <span>{title}</span>

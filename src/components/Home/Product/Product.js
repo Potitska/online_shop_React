@@ -4,17 +4,18 @@ import {useNavigate} from "react-router-dom";
 
 import {deleteItemFromCart, setItemInCart} from "../../../redux";
 
-import css from './Product.module.css';
+import css from './product.module.css';
 
 
 const Product = ({product}) => {
 
-    const {id, title, description, price, category, image} = product;
+    const {title, description, price, category, image} = product;
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const items = useSelector(state => state.cart.itemsInCart);
     const isItemInCart = items.some(item => item.id === product.id)       //Here we want to know if the current element is in the cart
+
     const handleClick = (e) => {
         e.stopPropagation();
         if (isItemInCart) {     //Here we check if the object is in the cart(it`s for buttons delete and buy)

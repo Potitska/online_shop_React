@@ -6,7 +6,7 @@ import {MdOutlineShoppingCart} from "react-icons/md";
 import {CartMenu} from "./Cart/CartMenu";
 import {Search} from "./Search";
 
-import css from './Header.module.css';
+import css from './header.module.css';
 
 
 const Header = () => {
